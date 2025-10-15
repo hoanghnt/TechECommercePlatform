@@ -33,7 +33,7 @@ public class OrderItem : BaseEntity
             throw new ArgumentException("Unit price must be greater than zero", nameof(unitPrice));
         
         return new OrderItem
-        {
+        {   
             OrderId = orderId,
             ProductId = productId,
             Quantity = quantity,
