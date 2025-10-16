@@ -3,7 +3,7 @@
 public sealed class Money : IEquatable<Money>
 {
     public decimal Amount { get; }
-    public string Currency { get; } // VND, USD, etc.
+    public string Currency { get; }
 
     private Money(decimal amount, string currency)
     {

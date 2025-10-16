@@ -1,5 +1,8 @@
 ﻿using System.Reflection;
+using FluentValidation;
+using MediatR;
 using Microsoft.Extensions.DependencyInjection;
+using TechECommercePlatform.Application.Common.Behaviours;
 
 namespace TechECommercePlatform.Application;
 
@@ -14,14 +17,11 @@ public static class DependencyInjection
         // Automapper
         services.AddAutoMapper(Assembly.GetExecutingAssembly());
         
-        // Validators (if using FluentValidation)
-        // services.AddValidatorsFromAssembly(Assembly.GetExecutingAssembly());
+        // Validators
+        services.AddValidatorsFromAssembly(Assembly.GetExecutingAssembly());
         
-        // Pipeline behaviors (later)
-        // services.AddTransient(typeof(IPipelineBehavior<,>), typeof(ValidationBehavior<,>));
-        // services.AddTransient(typeof(IPipelineBehavior<,>), typeof(UnhandledExceptionBehavior<,>));
-        // services.AddTransient(typeof(IPipelineBehavior<,>), typeof(AuthorizationBehavior<,>));
-        // services.AddTransient(typeof(IPipelineBehavior<,>), typeof(PerformanceBehavior<,>));
+        // Pipeline behaviors
+        services.AddTransient(typeof(IPipelineBehavior<,>), typeof(Common.Behaviours.ValidationBehavior<,>));
         
         return services;
     }

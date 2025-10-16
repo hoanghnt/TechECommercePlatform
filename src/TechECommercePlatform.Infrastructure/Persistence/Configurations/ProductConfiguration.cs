@@ -27,7 +27,7 @@ public class ProductConfiguration : IEntityTypeConfiguration<Product>
         
         builder.Property(p => p.Price)
             .IsRequired()
-            .HasColumnType("decimal(18,2)"); // 2 decimal places
+            .HasColumnType("decimal(18,2)");
         
         builder.Property(p => p.ImageUrl)
             .HasMaxLength(500);
@@ -49,7 +49,7 @@ public class ProductConfiguration : IEntityTypeConfiguration<Product>
         
         // Indexes
         builder.HasIndex(p => p.SKU)
-            .IsUnique(); // SKU must be unique
+            .IsUnique();
         
         builder.HasIndex(p => p.Name);
         builder.HasIndex(p => p.CategoryId);

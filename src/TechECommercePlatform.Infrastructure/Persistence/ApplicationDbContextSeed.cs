@@ -25,7 +25,7 @@ public static class ApplicationDbContextSeed
             context.Categories.AddRange(gamingLaptop, businessLaptop);
             await context.SaveChangesAsync();
             
-            Console.WriteLine("✅ Seeded Categories: 5 categories");
+            Console.WriteLine("Seeded Categories: 5 categories");
         }
 
         // Seed Products
@@ -133,7 +133,7 @@ public static class ApplicationDbContextSeed
             var products = await context.Products.ToListAsync();
             foreach (var product in products)
             {
-                var inventory = Inventory.Create(product.Id, 50); // 50 units cho mỗi sản phẩm
+                var inventory = Inventory.Create(product.Id, 50);
                 context.Inventories.Add(inventory);
             }
             await context.SaveChangesAsync();

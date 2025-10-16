@@ -1,3 +1,4 @@
+using TechECommercePlatform.API.Middleware;
 using TechECommercePlatform.Application;
 using TechECommercePlatform.Infrastructure;
 using TechECommercePlatform.API.Services;
@@ -49,6 +50,9 @@ if (app.Environment.IsDevelopment())
     app.UseSwagger();
     app.UseSwaggerUI();
 }
+
+app.UseMiddleware<GlobalExceptionHandler>();
+app.UseHttpsRedirection();
 
 app.UseHttpsRedirection();
 

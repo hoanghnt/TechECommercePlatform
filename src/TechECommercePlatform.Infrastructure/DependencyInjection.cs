@@ -38,8 +38,6 @@ public static class DependencyInjection
         // Services
         services.AddTransient<IDateTime, DateTimeService>();
 
-        // More infrastructure services as needed
-
         return services;
     }
 }
